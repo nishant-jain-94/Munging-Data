@@ -45,6 +45,9 @@ fs.readdir(dir,function(err,files) {
                 var arableland = {};
                 fields.forEach(function(field) {
                   if(field === "Country Name" || field.match(YEAR_PATTERN)) {
+                    if(data[fields.indexOf(field)] === "")
+                      arableland[field] = null;
+                    else
                     arableland[field] = data[fields.indexOf(field)];
                   }});
                 arableland_collection.push(arableland);
